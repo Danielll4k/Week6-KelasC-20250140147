@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Produk – Fetch API</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>PPAW Week 6</h1>
+    <p>JavaScript DOM, Event Handling, dan Fetch API</p>
+    <nav>
+      <a href="index.html" aria-current="page">Data Produk</a>
+      <a href="form.html">Form Pendaftaran</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="produk" aria-labelledby="judul-produk">
+      <div class="section-head">
+        <h2 id="judul-produk">Daftar Produk</h2>
+        <p>Data diambil dari <code>https://dummyjson.com/products</code></p>
+      </div>
+
+      <div class="toolbar">
+        <label for="cari-produk">Cari produk</label>
+        <input type="search" id="cari-produk" placeholder="Ketik nama produk…" disabled>
+        <span id="jumlah-produk" class="muted" aria-live="polite"></span>
+      </div>
+
+      <!-- Status loading / error -->
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+      <ul id="daftar-produk" class="product-grid"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Tugas Individu PPAW Week 6</p>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

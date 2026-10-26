@@ -1,0 +1,119 @@
+:root {
+  --bg: #eef2ef;
+  --surface: #ffffff;
+  --ink: #14213d;
+  --muted: #5d6b82;
+  --line: #d5dcd8;
+  --accent: #2f5bea;
+  --accent-ink: #ffffff;
+  --ok: #17794a;
+  --ok-bg: #e3f4ea;
+  --bad: #b3261e;
+  --bad-bg: #fbe9e7;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+}
+
+.site-header {
+  background: var(--ink);
+  color: #fff;
+  padding: 2.5rem 1.25rem 1.5rem;
+  text-align: left;
+}
+.site-header > * { max-width: 1040px; margin-inline: auto; }
+.site-header h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 2.8rem); letter-spacing: -0.02em; }
+.site-header p { margin: 0.25rem auto 1rem; color: #b9c4dc; }
+.site-header nav { display: flex; gap: 1rem; }
+.site-header a { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+
+main { max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+section { margin-bottom: 3.5rem; scroll-margin-top: 1rem; }
+
+.section-head h2 { margin: 0; font-size: 1.6rem; }
+.section-head p { margin: 0.25rem 0 1.25rem; color: var(--muted); }
+code { background: #dfe6f7; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+.muted { color: var(--muted); font-weight: 400; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  color: inherit;
+}
+input:disabled { background: #eef0f2; cursor: not-allowed; }
+
+/* ---------- Form ---------- */
+.form-layout { display: grid; gap: 1.5rem; grid-template-columns: 1.2fr 1fr; align-items: start; }
+@media (max-width: 760px) { .form-layout { grid-template-columns: 1fr; } }
+
+form, .result {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.field { margin-bottom: 1.1rem; }
+.field label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+.field.check { display: grid; grid-template-columns: auto 1fr; column-gap: 0.6rem; align-items: center; }
+.field.check input { width: 1.1rem; height: 1.1rem; }
+.field.check label { margin: 0; font-weight: 400; }
+.field.check small { grid-column: 2; }
+
+.error { display: block; min-height: 1.1em; color: var(--bad); font-size: 0.85rem; margin-top: 0.25rem; }
+input.invalid, select.invalid, textarea.invalid { border-color: var(--bad); background: var(--bad-bg); }
+input.valid, select.valid { border-color: var(--ok); }
+
+.stepper { display: flex; gap: 0.4rem; max-width: 190px; }
+.stepper input { text-align: center; }
+.stepper button {
+  width: 2.6rem; border: 1.5px solid var(--line); background: #fff;
+  border-radius: 8px; font-size: 1.2rem; cursor: pointer;
+}
+.stepper button:hover { background: #eef2ff; }
+
+.actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.btn {
+  padding: 0.65rem 1.2rem; border-radius: 8px; border: 1.5px solid var(--line);
+  background: #fff; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer;
+}
+.btn:hover { background: #f1f4f3; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { background: #2349c0; }
+
+.result h3 { margin: 0 0 0.6rem; font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem; }
+.result h3:not(:first-child) { margin-top: 1.5rem; }
+.summary { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem; margin: 0 0 1rem; }
+.summary dt { color: var(--muted); }
+.summary dd { margin: 0; font-weight: 600; text-align: right; }
+.summary dd#total-biaya { font-size: 1.3rem; color: var(--accent); }
+
+.feedback { padding: 0.8rem 1rem; border-radius: 8px; margin-bottom: 0.5rem; }
+.feedback.ok { background: var(--ok-bg); color: var(--ok); }
+.feedback.bad { background: var(--bad-bg); color: var(--bad); }
+
+.badge { background: var(--ink); color: #fff; font-size: 0.8rem; border-radius: 999px; padding: 0.05rem 0.55rem; }
+.peserta { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.peserta li {
+  display: flex; justify-content: space-between; gap: 0.75rem; align-items: center;
+  padding: 0.6rem 0.8rem; border: 1px solid var(--line); border-radius: 8px;
+}
+.peserta .info small { display: block; color: var(--muted); }
+.peserta button {
+  border: none; background: none; color: var(--bad); cursor: pointer; font: inherit; text-decoration: underline;
+}
+
+footer { text-align: center; padding: 1.5rem; color: var(--muted); border-top: 1px solid var(--line); }

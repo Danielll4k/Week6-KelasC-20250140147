@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Pendaftaran – DOM & Event Handling</title>
+  <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>PPAW Week 6</h1>
+    <p>JavaScript DOM, Event Handling, dan Fetch API</p>
+    <nav>
+      <a href="index.html">Data Produk</a>
+      <a href="form.html" aria-current="page">Form Pendaftaran</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="form" aria-labelledby="judul-form">
+      <div class="section-head">
+        <h2 id="judul-form">Pendaftaran Workshop</h2>
+        <p>Isi form berikut. Validasi berjalan saat mengetik dan saat dikirim.</p>
+      </div>
+
+      <div class="form-layout">
+        <form id="form-daftar" novalidate>
+          <div class="field">
+            <label for="nama">Nama lengkap</label>
+            <input type="text" id="nama" name="nama" autocomplete="name" placeholder="Contoh: Budi Santoso">
+            <small class="error" id="err-nama"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="nama@email.com">
+            <small class="error" id="err-email"></small>
+          </div>
+
+          <div class="field">
+            <label for="kelas">Kelas workshop</label>
+            <select id="kelas" name="kelas">
+              <option value="">— Pilih kelas —</option>
+              <option value="HTML & CSS Dasar" data-harga="50000">HTML &amp; CSS Dasar — Rp50.000</option>
+              <option value="JavaScript DOM" data-harga="75000">JavaScript DOM — Rp75.000</option>
+              <option value="Fetch API & Async" data-harga="90000">Fetch API &amp; Async — Rp90.000</option>
+            </select>
+            <small class="error" id="err-kelas"></small>
+          </div>
+
+          <div class="field">
+            <label for="jumlah">Jumlah peserta</label>
+            <div class="stepper">
+              <button type="button" id="kurang" aria-label="Kurangi jumlah">−</button>
+              <input type="number" id="jumlah" name="jumlah" value="1" min="1" max="5" inputmode="numeric">
+              <button type="button" id="tambah" aria-label="Tambah jumlah">+</button>
+            </div>
+            <small class="error" id="err-jumlah"></small>
+          </div>
+
+          <div class="field">
+            <label for="catatan">Catatan <span class="muted">(opsional)</span></label>
+            <textarea id="catatan" name="catatan" rows="3" maxlength="100" placeholder="Misal: butuh akses kursi roda"></textarea>
+            <small class="muted" id="hitung-catatan">0 / 100</small>
+          </div>
+
+          <div class="field check">
+            <input type="checkbox" id="setuju" name="setuju">
+            <label for="setuju">Data yang saya isi sudah benar</label>
+            <small class="error" id="err-setuju"></small>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn primary">Daftar sekarang</button>
+            <button type="button" id="btn-reset" class="btn">Kosongkan</button>
+          </div>
+        </form>
+
+        <aside class="result" aria-live="polite">
+          <h3>Ringkasan</h3>
+          <dl id="ringkasan" class="summary">
+            <dt>Total biaya</dt>
+            <dd id="total-biaya">Rp0</dd>
+          </dl>
+          <div id="feedback" class="feedback" hidden></div>
+
+          <h3>Peserta terdaftar <span id="jumlah-daftar" class="badge">0</span></h3>
+          <p id="kosong" class="muted">Belum ada pendaftar.</p>
+          <ul id="daftar-peserta" class="peserta"></ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Tugas Individu PPAW Week 6</p>
+  </footer>
+
+  <script src="js/form.js"></script>
+</body>
+</html>
